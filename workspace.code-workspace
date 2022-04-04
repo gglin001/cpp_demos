@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "standalone_projects/lcov_pybind_demo"
+		},
+		{
+			"path": "standalone_projects/obj_register_static_lib"
 		}
 	],
 	"settings": {}
