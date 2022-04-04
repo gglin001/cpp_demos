@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "standalone_projects/lcov_cpp_demo"
+		},
+		{
+			"path": "standalone_projects/lcov_pybind_demo"
+		}
+	],
+	"settings": {}
+}

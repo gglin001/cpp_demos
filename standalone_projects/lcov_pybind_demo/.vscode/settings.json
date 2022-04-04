@@ -1,0 +1,5 @@
+{
+    "cmake.configureSettings": {
+        "WITH_COVERAGE": "ON",
+    }
+}
