@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
 
-# https://stackoverflow.com/questions/32197663
-cmake_policy(SET CMP0026 OLD)
-
 project(lcov_pybind11)
 
 option(WITH_COVERAGE "build with coverage" ON)
@@ -12,7 +9,8 @@ find_package(Python COMPONENTS Interpreter Development)
 find_package(pybind11 REQUIRED)
 
 pybind11_add_module(lib lib.cpp)
-get_target_property(lib_loc lib LOCATION)
+# https://cmake.org/cmake/help/latest/policy/CMP0026.html
+set(lib_loc $<TARGET_FILE:lib>)
 
 enable_testing()
 # may need to set Python_EXECUTABLE manually
