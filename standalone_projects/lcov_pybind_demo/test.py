@@ -8,5 +8,5 @@ def test_main():
     # assert m.mul(4, 2) == 8
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_main()
