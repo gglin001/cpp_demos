@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "standalone_projects/obj_register_static_lib"
+		},
+		{
+			"path": "standalone_projects/obj_register_shared_lib"
 		}
 	],
 	"settings": {}
