@@ -24,4 +24,5 @@ RUN conda install glog boost protobuf -y
 # set env
 # TODO use ${CONDA_PREFIX}
 ENV LD_LIBRARY_PATH="/opt/conda/envs/py38/lib:${LD_LIBRARY_PATH}"
+ENV LIBRARY_PATH="/opt/conda/envs/py38/lib:${LIBRARY_PATH}"
 RUN echo "conda activate py38" >> ~/.bashrc
