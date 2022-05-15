@@ -5,13 +5,11 @@
 #include <iostream>
 #include <map>
 
-using namespace backward;
-
 void func1() {
   LOG(INFO) << "-> func1";
 
   // print backtrace
-  StackTrace st;
+  backward::StackTrace st;
   st.load_here();
 
   backward::Printer printer;
