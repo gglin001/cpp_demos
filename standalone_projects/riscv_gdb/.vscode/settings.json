@@ -1,0 +1,11 @@
+{
+    "cmake.configureSettings": {
+        // "CMAKE_PREFIX_PATH": "/opt/riscv",
+        "CMAKE_SYSROOT": "/opt/riscv/riscv64-unknown-elf",
+        "CMAKE_VERBOSE_MAKEFILE": "ON",
+        // for clang
+        "CMAKE_C_FLAGS": "--gcc-toolchain=/opt/riscv --target=riscv64 -march=rv64gc",
+        "CMAKE_CXX_FLAGS": "--gcc-toolchain=/opt/riscv --target=riscv64 -march=rv64gc",
+        "CMAKE_ASM_FLAGS": "--gcc-toolchain=/opt/riscv --target=riscv64 -march=rv64gc",
+    },
+}

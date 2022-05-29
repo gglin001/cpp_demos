@@ -14,7 +14,10 @@
 		},
 		{
 			"path": "standalone_projects/obj_register_shared_lib"
-		}
+		},
+		{
+			"path": "standalone_projects/riscv_gdb"
+		},
 	],
 	"settings": {}
 }
