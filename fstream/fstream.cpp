@@ -1,7 +1,7 @@
 #include <cstdio>
+#include <cstring>
 #include <fstream>
 #include <iostream>
-#include <cstring>
 #include <map>
 
 int main() {

@@ -10,7 +10,7 @@ find_package(pybind11 REQUIRED)
 
 pybind11_add_module(lib lib.cpp)
 # https://cmake.org/cmake/help/latest/policy/CMP0026.html
-set(lib_loc $<TARGET_FILE:lib>)
+set(LIB_LOC $<TARGET_FILE:lib>)
 
 enable_testing()
 # may need to set Python_EXECUTABLE manually
@@ -24,7 +24,8 @@ if(WITH_COVERAGE)
 
   add_custom_target(
     coverage
-    COMMAND cp ${lib_loc} ${CMAKE_SOURCE_DIR}
+    COMMENT "do coverage test"
+    COMMAND cp ${LIB_LOC} ${CMAKE_SOURCE_DIR}
     COMMAND ${CMAKE_MAKE_PROGRAM} test
     COMMAND sh ${CMAKE_SOURCE_DIR}/scripts/coverage.sh
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR})

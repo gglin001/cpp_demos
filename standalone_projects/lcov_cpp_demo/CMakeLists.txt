@@ -18,6 +18,7 @@ if(WITH_COVERAGE)
 
   add_custom_target(
     coverage
+    COMMENT "do coverage test"
     COMMAND ${CMAKE_MAKE_PROGRAM} test
     COMMAND sh ${CMAKE_SOURCE_DIR}/scripts/coverage.sh
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
