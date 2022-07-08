@@ -1,7 +1,9 @@
 {
     "cmake.configureSettings": {
-        "CMAKE_PREFIX_PATH": "/opt/conda/envs/py38",
-        "CMAKE_SYSROOT": "/opt/conda/envs/py38/x86_64-conda-linux-gnu/sysroot",
+        // "CMAKE_PREFIX_PATH": "/opt/conda/envs/py38",
+        // "CMAKE_SYSROOT": "/opt/conda/envs/py38/x86_64-conda-linux-gnu/sysroot",
         "CMAKE_INSTALL_PREFIX": "install",
+        // "CMAKE_CXX_INCLUDE_WHAT_YOU_USE": "/usr/local/bin/include-what-you-use",
+        // "CMAKE_C_INCLUDE_WHAT_YOU_USE": "/usr/local/bin/include-what-you-use",
     },
 }
