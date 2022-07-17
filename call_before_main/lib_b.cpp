@@ -1,5 +1,7 @@
 #include <glog/logging.h>
 
+namespace lib_b {
+
 static auto func = []() { LOG(ERROR) << "init lib_b"; };
 
 struct Temp {
@@ -7,3 +9,5 @@ struct Temp {
 };
 
 static auto tmp = Temp();
+
+} // namespace lib_b
