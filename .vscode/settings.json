@@ -5,5 +5,7 @@
         "CMAKE_INSTALL_PREFIX": "install",
         // "CMAKE_CXX_INCLUDE_WHAT_YOU_USE": "/usr/local/bin/include-what-you-use",
         // "CMAKE_C_INCLUDE_WHAT_YOU_USE": "/usr/local/bin/include-what-you-use",
+        // "CMAKE_VERBOSE_MAKEFILE": "ON",
+        // "FETCHCONTENT_BASE_DIR": "/opt/cmake_cache",
     },
 }
