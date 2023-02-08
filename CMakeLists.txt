@@ -29,6 +29,14 @@ if(NOT backwardcpp_POPULATED)
   set(Backward_ROOT ${backwardcpp_SOURCE_DIR})
 endif()
 
+find_package(glog REQUIRED)
+find_package(Backward)
+
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+message("Python3_EXECUTABLE: ${Python3_EXECUTABLE}")
+message("Python3_INCLUDE_DIRS: ${Python3_INCLUDE_DIRS}")
+message("Python3_LIBRARIES: ${Python3_LIBRARIES}")
+
 add_subdirectory(glog)
 # add_subdirectory(boost_variant)
 add_subdirectory(enum)

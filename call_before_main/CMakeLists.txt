@@ -1,5 +1,3 @@
-find_package(glog REQUIRED)
-
 add_library(lib_a SHARED lib_a.cpp)
 target_link_libraries(lib_a glog::glog)
 
