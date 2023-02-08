@@ -17,6 +17,9 @@ FetchContent_Declare(
   GIT_TAG v0.5.0
   OVERRIDE_FIND_PACKAGE)
 set(WITH_GFLAGS OFF)
+set(WITH_GTEST OFF)
+set(WITH_UNWIND OFF)
+set(BUILD_TESTING OFF)
 FetchContent_MakeAvailable(glog)
 # backward_cpp
 FetchContent_Declare(
