@@ -18,13 +18,26 @@ FetchContent_Declare(
   OVERRIDE_FIND_PACKAGE)
 set(WITH_GFLAGS OFF)
 FetchContent_MakeAvailable(glog)
+# backward_cpp
+FetchContent_Declare(
+  backwardcpp
+  GIT_REPOSITORY https://github.com/bombela/backward-cpp.git
+  GIT_TAG v1.6
+  OVERRIDE_FIND_PACKAGE)
+if(NOT backwardcpp_POPULATED)
+  FetchContent_Populate(backwardcpp)
+  set(Backward_ROOT ${backwardcpp_SOURCE_DIR})
+endif()
 
 add_subdirectory(glog)
 # add_subdirectory(boost_variant)
 add_subdirectory(enum)
 add_subdirectory(fstream)
 # add_subdirectory(protobuf)
-# add_subdirectory(backward_cpp)
+
+# need gcc compiler
+add_subdirectory(backward_cpp)
+
 add_subdirectory(glibc_version)
 add_subdirectory(python3)
 add_subdirectory(variadic_template)
