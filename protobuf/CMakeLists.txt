@@ -6,5 +6,5 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS message.proto)
 add_library(proto STATIC ${PROTO_SRCS} ${PROTO_HDRS})
 target_link_libraries(proto protobuf::libprotobuf)
 
-add_executable(demo_protobuf protobuf.cpp)
-target_link_libraries(demo_protobuf proto)
+add_executable(exe_protobuf protobuf.cpp)
+target_link_libraries(exe_protobuf proto)

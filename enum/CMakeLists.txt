@@ -1,2 +1,1 @@
-add_executable(enum enum.cpp)
-target_link_libraries(enum)
+add_executable(exe_enum enum.cpp)

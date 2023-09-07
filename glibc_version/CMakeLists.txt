@@ -1,1 +1,1 @@
-add_executable(glibc_version glibc_version.cpp)
+add_executable(exe_glibc_version glibc_version.cpp)
