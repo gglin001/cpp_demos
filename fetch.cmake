@@ -6,9 +6,9 @@ set(FETCHCONTENT_QUIET FALSE)
 # glog
 FetchContent_Declare(
   glog
+  SYSTEM OVERRIDE_FIND_PACKAGE
   GIT_REPOSITORY https://github.com/google/glog.git
-  GIT_TAG v0.5.0
-  OVERRIDE_FIND_PACKAGE)
+  GIT_TAG v0.5.0)
 set(WITH_GFLAGS OFF)
 set(sWITH_GTEST OFF)
 set(WITH_UNWIND OFF)
@@ -18,9 +18,9 @@ FetchContent_MakeAvailable(glog)
 # backward_cpp
 FetchContent_Declare(
   backwardcpp
+  SYSTEM OVERRIDE_FIND_PACKAGE
   GIT_REPOSITORY https://github.com/bombela/backward-cpp.git
-  GIT_TAG v1.6
-  OVERRIDE_FIND_PACKAGE)
+  GIT_TAG v1.6)
 if(NOT backwardcpp_POPULATED)
   FetchContent_Populate(backwardcpp)
   set(Backward_ROOT ${backwardcpp_SOURCE_DIR})
@@ -29,20 +29,17 @@ endif()
 # capnproto
 FetchContent_Declare(
   capnproto
-  SYSTEM
+  SYSTEM OVERRIDE_FIND_PACKAGE
   GIT_REPOSITORY https://github.com/capnproto/capnproto
   GIT_TAG v0.10.4
-  GIT_SHALLOW TRUE
-  OVERRIDE_FIND_PACKAGE)
+  GIT_SHALLOW TRUE)
 FetchContent_MakeAvailable(capnproto)
 
 # protobuf
 FetchContent_Declare(
   protobuf
-  SYSTEM
-  OVERRIDE_FIND_PACKAGE
-  # GIT_REPOSITORY https://github.com/protocolbuffers/protobuf.git
-  GIT_REPOSITORY file:///repos/cpp_demos/other_repos/protobuf
+  SYSTEM OVERRIDE_FIND_PACKAGE
+  GIT_REPOSITORY https://github.com/protocolbuffers/protobuf.git
   GIT_TAG v3.20.0
   SOURCE_SUBDIR cmake
   GIT_SHALLOW TRUE)
