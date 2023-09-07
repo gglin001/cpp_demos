@@ -1,2 +1,1 @@
-add_executable(fstream fstream.cpp)
-target_link_libraries(fstream)
+add_executable(exe_fstream fstream.cpp)

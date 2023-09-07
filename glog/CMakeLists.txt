@@ -1,2 +1,2 @@
-add_executable(demo_glog glog.cpp)
-target_link_libraries(demo_glog glog::glog)
+add_executable(exe_glog glog.cpp)
+target_link_libraries(exe_glog glog::glog)
