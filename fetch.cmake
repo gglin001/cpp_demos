@@ -36,6 +36,7 @@ FetchContent_Declare(
   OVERRIDE_FIND_PACKAGE)
 FetchContent_MakeAvailable(capnproto)
 
+# protobuf
 FetchContent_Declare(
   protobuf
   SYSTEM
@@ -47,3 +48,13 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE)
 set(protobuf_BUILD_TESTS OFF)
 FetchContent_MakeAvailable(protobuf)
+
+if(WITH_BOOST)
+  # boost
+  FetchContent_Declare(
+    boost
+    SYSTEM
+    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.tar.xz
+        OVERRIDE_FIND_PACKAGE)
+  FetchContent_MakeAvailable(boost)
+endif()
