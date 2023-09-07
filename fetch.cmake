@@ -50,8 +50,8 @@ if(WITH_BOOST)
   # boost
   FetchContent_Declare(
     boost
-    SYSTEM
+    SYSTEM OVERRIDE_FIND_PACKAGE
     URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.tar.xz
-        OVERRIDE_FIND_PACKAGE)
+  )
   FetchContent_MakeAvailable(boost)
 endif()
