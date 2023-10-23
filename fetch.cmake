@@ -50,6 +50,24 @@ if(WITH_PROTOBUF)
     GIT_SHALLOW TRUE)
   set(protobuf_BUILD_TESTS OFF)
   FetchContent_MakeAvailable(protobuf)
+
+  if(WITH_GRPC)
+    # grpc
+    FetchContent_Declare(
+      grpc
+      SYSTEM
+      GIT_REPOSITORY https://github.com/grpc/grpc
+      GIT_TAG v1.49.2
+      GIT_SHALLOW TRUE
+      OVERRIDE_FIND_PACKAGE)
+    set(gRPC_BUILD_CSHARP_EXT OFF)
+    set(gRPC_BUILD_GRPC_CSHARP_PLUGIN OFF)
+    set(gRPC_BUILD_GRPC_NODE_PLUGIN OFF)
+    set(gRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN OFF)
+    set(gRPC_BUILD_GRPC_PHP_PLUGIN OFF)
+    set(gRPC_BUILD_GRPC_RUBY_PLUGIN OFF)
+    FetchContent_MakeAvailable(grpc)
+  endif()
 endif()
 
 # fmt

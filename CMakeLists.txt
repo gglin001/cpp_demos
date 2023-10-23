@@ -43,6 +43,9 @@ endif()
 
 if(WITH_PROTOBUF)
   add_subdirectory(protobuf)
+  if(WITH_GRPC)
+    add_subdirectory(protobuf_grpc)
+  endif()
 endif()
 
 if(WITH_BOOST)
