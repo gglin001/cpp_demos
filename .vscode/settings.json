@@ -3,7 +3,7 @@
         "CMAKE_INSTALL_PREFIX": "install",
         // "CMAKE_VERBOSE_MAKEFILE": "ON",
         "WITH_BOOST": "OFF",
-        "WITH_PROTOBUF": "ON",
+        "WITH_PROTOBUF": "OFF",
         "WITH_GPRC": "OFF",
     },
 }
