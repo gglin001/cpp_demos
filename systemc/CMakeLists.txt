@@ -9,6 +9,7 @@ FetchContent_MakeAvailable(systemc)
 
 find_package(SystemCLanguage CONFIG REQUIRED)
 
-add_executable(sc_simple_async main.cpp)
-target_include_directories(sc_simple_async PUBLIC "${systemc_SOURCE_DIR}/src")
-target_link_libraries(sc_simple_async SystemC::systemc)
+add_executable(exe_sc_simple_async main.cpp)
+target_include_directories(exe_sc_simple_async
+                           PUBLIC "${systemc_SOURCE_DIR}/src")
+target_link_libraries(exe_sc_simple_async SystemC::systemc)
