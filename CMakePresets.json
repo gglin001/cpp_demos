@@ -25,8 +25,10 @@
         "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/build/bin",
         "CMAKE_EXPORT_COMPILE_COMMANDS": true,
         // "CMAKE_VERBOSE_MAKEFILE": true,
-        "CMAKE_CXX_STANDARD": "20",
-        "WITH_BOOST": "ON",
+        // systemc need 14
+        // TODO: just use 14 for systemc
+        "CMAKE_CXX_STANDARD": "14",
+        "WITH_BOOST": "OFF",
         "WITH_PROTOBUF": "ON",
         "WITH_GPRC": "ON",
         "WITH_SYSTEMC": "ON"

@@ -23,8 +23,9 @@ if(WITH_CAPNP)
   FetchContent_Declare(
     capnproto
     SYSTEM OVERRIDE_FIND_PACKAGE
-    # GIT_REPOSITORY https://github.com/capnproto/capnproto
-    GIT_REPOSITORY "/repos/cpp_demos/_demos/capnproto"
+    # TODO: ??
+    GIT_REPOSITORY https://github.com/capnproto/capnproto
+    # GIT_REPOSITORY "/repos/cpp_demos/_demos/capnproto"
     # URL "/repos/cpp_demos/_demos/capnproto"
     # GIT_TAG v0.10.4
     GIT_SHALLOW TRUE)
