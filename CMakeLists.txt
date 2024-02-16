@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 
+option(WITH_MIN_DEPS "WITH_MIN_DEPS" ON)
 option(WITH_BOOST "WITH_BOOST" OFF)
 option(WITH_CAPNP "WITH_CAPNP" OFF)
 option(WITH_GLOG "WITH_GLOG" OFF)
@@ -21,12 +22,12 @@ set(FETCHCONTENT_QUIET FALSE)
 # FetchContent
 include(fetch.cmake)
 
+# spdlog is always required
+find_package(spdlog REQUIRED)
+
 if(WITH_BOOST)
   find_package(Boost REQUIRED CONFIG)
 endif()
-
-# spdlog is always required
-find_package(spdlog REQUIRED)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 message("Python3_EXECUTABLE: ${Python3_EXECUTABLE}")
@@ -41,9 +42,10 @@ add_subdirectory(python3)
 add_subdirectory(spdlog)
 add_subdirectory(variadic_template)
 
-# need 3rd libs, but disbale manually
-add_subdirectory(backward_cpp)
-add_subdirectory(fmt)
+if(WITH_MIN_DEPS)
+  add_subdirectory(backward_cpp)
+  add_subdirectory(fmt)
+endif()
 
 if(WITH_BOOST)
   add_subdirectory(boost_variant)

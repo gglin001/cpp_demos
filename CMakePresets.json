@@ -2,7 +2,7 @@
   "version": 2,
   "configurePresets": [
     {
-      "name": "default",
+      "name": "minimum",
       "description": "minimum build",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
@@ -11,7 +11,8 @@
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install",
         "CMAKE_EXPORT_COMPILE_COMMANDS": true,
         // "CMAKE_VERBOSE_MAKEFILE": true,
-        "CMAKE_CXX_STANDARD": "20"
+        "CMAKE_CXX_STANDARD": "14",
+        "WITH_MIN_DEPS": false
       }
     },
     {
@@ -28,6 +29,7 @@
         // systemc need 14
         // TODO: just use 14 for systemc
         "CMAKE_CXX_STANDARD": "14",
+        "WITH_MIN_DEPS": "ON",
         "WITH_BOOST": "OFF",
         "WITH_PROTOBUF": "ON",
         "WITH_GPRC": "ON",
