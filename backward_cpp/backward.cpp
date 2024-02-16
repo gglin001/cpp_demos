@@ -1,12 +1,10 @@
 #include <backward.hpp>
 #include <cstdio>
-#include <fstream>
-#include <glog/logging.h>
 #include <iostream>
-#include <map>
+#include <spdlog/spdlog.h>
 
 void func1() {
-  LOG(INFO) << "-> func1";
+  spdlog::info("-> func1");
 
   // print backtrace
   backward::StackTrace st;
@@ -28,7 +26,7 @@ void func1() {
 }
 
 void func0() {
-  LOG(INFO) << "-> func0";
+  spdlog::info("-> func0");
   func1();
 }
 

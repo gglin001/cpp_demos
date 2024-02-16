@@ -1,29 +1,21 @@
-# https://cmake.org/cmake/help/latest/policy/CMP0077.html
-set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
-include(FetchContent)
-set(FETCHCONTENT_QUIET FALSE)
-
-# glog
+# spdlog
 FetchContent_Declare(
-  glog
-  SYSTEM OVERRIDE_FIND_PACKAGE
-  GIT_REPOSITORY https://github.com/google/glog.git
-  GIT_TAG v0.5.0)
-set(WITH_GFLAGS OFF)
-set(sWITH_GTEST OFF)
-set(WITH_UNWIND OFF)
-set(BUILD_TESTING OFF)
-FetchContent_MakeAvailable(glog)
+  spdlog
+  SYSTEM
+  GIT_REPOSITORY https://github.com/gabime/spdlog
+  GIT_TAG v1.13.0
+  GIT_SHALLOW TRUE
+  OVERRIDE_FIND_PACKAGE)
+FetchContent_MakeAvailable(spdlog)
 
-# backward_cpp
-FetchContent_Declare(
-  backwardcpp
-  SYSTEM OVERRIDE_FIND_PACKAGE
-  GIT_REPOSITORY https://github.com/bombela/backward-cpp.git
-  GIT_TAG v1.6)
-if(NOT backwardcpp_POPULATED)
-  FetchContent_Populate(backwardcpp)
-  set(Backward_ROOT ${backwardcpp_SOURCE_DIR})
+if(WITH_BOOST)
+  # boost
+  FetchContent_Declare(
+    boost
+    SYSTEM OVERRIDE_FIND_PACKAGE
+    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.tar.xz
+  )
+  FetchContent_MakeAvailable(boost)
 endif()
 
 if(WITH_CAPNP)
@@ -31,8 +23,9 @@ if(WITH_CAPNP)
   FetchContent_Declare(
     capnproto
     SYSTEM OVERRIDE_FIND_PACKAGE
-    # GIT_REPOSITORY https://github.com/capnproto/capnproto
-    GIT_REPOSITORY "/repos/cpp_demos/_demos/capnproto"
+    # TODO: ??
+    GIT_REPOSITORY https://github.com/capnproto/capnproto
+    # GIT_REPOSITORY "/repos/cpp_demos/_demos/capnproto"
     # URL "/repos/cpp_demos/_demos/capnproto"
     # GIT_TAG v0.10.4
     GIT_SHALLOW TRUE)
@@ -68,23 +61,4 @@ if(WITH_PROTOBUF)
     set(gRPC_BUILD_GRPC_RUBY_PLUGIN OFF)
     FetchContent_MakeAvailable(grpc)
   endif()
-endif()
-
-# fmt
-FetchContent_Declare(
-  fmt
-  SYSTEM OVERRIDE_FIND_PACKAGE
-  GIT_REPOSITORY https://github.com/fmtlib/fmt
-  GIT_TAG 10.1.1
-  GIT_SHALLOW TRUE)
-FetchContent_MakeAvailable(fmt)
-
-if(WITH_BOOST)
-  # boost
-  FetchContent_Declare(
-    boost
-    SYSTEM OVERRIDE_FIND_PACKAGE
-    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.tar.xz
-  )
-  FetchContent_MakeAvailable(boost)
 endif()

@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "default",
+      "description": "minimum build",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        // "CMAKE_VERBOSE_MAKEFILE": true,
+        "CMAKE_CXX_STANDARD": "20"
+      }
+    },
+    {
+      "name": "all",
+      "description": "all",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/build/bin",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        // "CMAKE_VERBOSE_MAKEFILE": true,
+        // systemc need 14
+        // TODO: just use 14 for systemc
+        "CMAKE_CXX_STANDARD": "14",
+        "WITH_BOOST": "OFF",
+        "WITH_PROTOBUF": "ON",
+        "WITH_GPRC": "ON",
+        "WITH_SYSTEMC": "ON"
+      }
+    }
+  ]
+}
