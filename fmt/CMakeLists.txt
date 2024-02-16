@@ -8,4 +8,4 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(fmt)
 
 add_executable(exe_fmt main.cpp)
-target_link_libraries(exe_fmt glog::glog fmt::fmt)
+target_link_libraries(exe_fmt fmt::fmt)

@@ -1,8 +1,8 @@
 #include <fmt/format.h>
-#include <glog/logging.h>
+#include <iostream>
 
 int main() {
   int a = 100;
 
-  LOG(ERROR) << fmt::format("a= {} \n", a);
+  std::cout << fmt::format("a={} \n", a);
 }

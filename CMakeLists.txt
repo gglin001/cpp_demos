@@ -9,6 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 
 option(WITH_BOOST "WITH_BOOST" OFF)
 option(WITH_CAPNP "WITH_CAPNP" OFF)
+option(WITH_GLOG "WITH_GLOG" OFF)
 option(WITH_PROTOBUF "WITH_PROTOBUF" OFF)
 option(WITH_SYSTEMC "WITH_SYSTEMC" OFF)
 
@@ -24,8 +25,8 @@ if(WITH_BOOST)
   find_package(Boost REQUIRED CONFIG)
 endif()
 
-# TODO: use spdlod instead
-find_package(glog REQUIRED)
+# spdlog is always required
+find_package(spdlog REQUIRED)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 message("Python3_EXECUTABLE: ${Python3_EXECUTABLE}")
@@ -37,11 +38,11 @@ add_subdirectory(enum)
 add_subdirectory(fstream)
 add_subdirectory(glibc_version)
 add_subdirectory(python3)
+add_subdirectory(spdlog)
 add_subdirectory(variadic_template)
 
 # need 3rd libs, but disbale manually
 add_subdirectory(backward_cpp)
-add_subdirectory(glog)
 add_subdirectory(fmt)
 
 if(WITH_BOOST)
@@ -50,6 +51,10 @@ endif()
 
 if(WITH_CAPNP)
   add_subdirectory(canproto)
+endif()
+
+if(WITH_GLOG)
+  add_subdirectory(glog)
 endif()
 
 if(WITH_PROTOBUF)

@@ -1,11 +1,8 @@
-#include <fstream>
-#include <iostream>
-#include <map>
 #include <string>
 #include <vector>
 
 #include <boost/variant.hpp>
-#include <glog/logging.h>
+#include <spdlog/spdlog.h>
 
 using Attribute =
     boost::variant<boost::blank, int, float, std::string, std::vector<int>,
@@ -16,9 +13,9 @@ using Attribute =
                               __FuncName)                                      \
   template <typename OutputType, typename InputType>                           \
   auto __FuncName(__InputType input, const char *expression, const char *file, \
-                  int line)                                                    \
-      ->typename std::conditional<std::is_pointer<InputType>::value,           \
-                                  __OutputTypePtr, __OutputType>::type {       \
+                  int line) ->                                                 \
+      typename std::conditional<std::is_pointer<InputType>::value,             \
+                                __OutputTypePtr, __OutputType>::type {         \
     return boost::get<OutputType>(input);                                      \
   }
 
@@ -42,17 +39,17 @@ int main() {
   v.push_back("abc");
   v.push_back("abc");
 
-  LOG(ERROR) << &v;
-  LOG(ERROR) << &v[0];
-  LOG(ERROR) << &v[2];
+  spdlog::info("{}", &v);
+  spdlog::info("{}", &v[0]);
+  spdlog::info("{}", &v[2]);
 
-  LOG(ERROR) << "------------";
+  spdlog::info("{}", "------------");
   Attribute x = v;
   // auto vv = BOOST_GET(std::vector<std::string>, x);
   auto vv = BOOST_GET_MUTABLE(std::vector<std::string>, x);
-  LOG(ERROR) << &vv;
-  LOG(ERROR) << &vv[0];
-  LOG(ERROR) << &vv[2];
+  spdlog::info("{}", &vv);
+  spdlog::info("{}", &vv[0]);
+  spdlog::info("{}", &vv[2]);
 
   return 0;
 }

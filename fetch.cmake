@@ -1,14 +1,22 @@
-# glog
+# spdlog
 FetchContent_Declare(
-  glog
-  SYSTEM OVERRIDE_FIND_PACKAGE
-  GIT_REPOSITORY https://github.com/google/glog.git
-  GIT_TAG v0.5.0)
-set(WITH_GFLAGS OFF)
-set(sWITH_GTEST OFF)
-set(WITH_UNWIND OFF)
-set(BUILD_TESTING OFF)
-FetchContent_MakeAvailable(glog)
+  spdlog
+  SYSTEM
+  GIT_REPOSITORY https://github.com/gabime/spdlog
+  GIT_TAG v1.13.0
+  GIT_SHALLOW TRUE
+  OVERRIDE_FIND_PACKAGE)
+FetchContent_MakeAvailable(spdlog)
+
+if(WITH_BOOST)
+  # boost
+  FetchContent_Declare(
+    boost
+    SYSTEM OVERRIDE_FIND_PACKAGE
+    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.tar.xz
+  )
+  FetchContent_MakeAvailable(boost)
+endif()
 
 if(WITH_CAPNP)
   # capnproto
@@ -52,14 +60,4 @@ if(WITH_PROTOBUF)
     set(gRPC_BUILD_GRPC_RUBY_PLUGIN OFF)
     FetchContent_MakeAvailable(grpc)
   endif()
-endif()
-
-if(WITH_BOOST)
-  # boost
-  FetchContent_Declare(
-    boost
-    SYSTEM OVERRIDE_FIND_PACKAGE
-    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.tar.xz
-  )
-  FetchContent_MakeAvailable(boost)
 endif()

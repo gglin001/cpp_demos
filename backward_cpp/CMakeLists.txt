@@ -12,4 +12,4 @@ endif()
 find_package(Backward REQUIRED)
 
 add_executable(exe_backward backward.cpp)
-target_link_libraries(exe_backward glog::glog Backward::Backward)
+target_link_libraries(exe_backward spdlog Backward::Backward)
