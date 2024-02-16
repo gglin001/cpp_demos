@@ -8,8 +8,14 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 
 option(WITH_BOOST "WITH_BOOST" OFF)
-option(WITH_PROTOBUF "WITH_PROTOBUF" OFF)
 option(WITH_CAPNP "WITH_CAPNP" OFF)
+option(WITH_PROTOBUF "WITH_PROTOBUF" OFF)
+option(WITH_SYSTEMC "WITH_SYSTEMC" OFF)
+
+# https://cmake.org/cmake/help/latest/policy/CMP0077.html
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+include(FetchContent)
+set(FETCHCONTENT_QUIET FALSE)
 
 # FetchContent
 include(fetch.cmake)
@@ -18,24 +24,29 @@ if(WITH_BOOST)
   find_package(Boost REQUIRED CONFIG)
 endif()
 
+# TODO: use spdlod instead
 find_package(glog REQUIRED)
-find_package(Backward REQUIRED)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 message("Python3_EXECUTABLE: ${Python3_EXECUTABLE}")
 message("Python3_INCLUDE_DIRS: ${Python3_INCLUDE_DIRS}")
 message("Python3_LIBRARIES: ${Python3_LIBRARIES}")
 
-add_subdirectory(glog)
-add_subdirectory(fmt)
+add_subdirectory(call_before_main)
 add_subdirectory(enum)
 add_subdirectory(fstream)
-# need gcc compiler
-add_subdirectory(backward_cpp)
 add_subdirectory(glibc_version)
 add_subdirectory(python3)
 add_subdirectory(variadic_template)
-add_subdirectory(call_before_main)
+
+# need 3rd libs, but disbale manually
+add_subdirectory(backward_cpp)
+add_subdirectory(glog)
+add_subdirectory(fmt)
+
+if(WITH_BOOST)
+  add_subdirectory(boost_variant)
+endif()
 
 if(WITH_CAPNP)
   add_subdirectory(canproto)
@@ -48,6 +59,6 @@ if(WITH_PROTOBUF)
   endif()
 endif()
 
-if(WITH_BOOST)
-  add_subdirectory(boost_variant)
+if(WITH_SYSTEMC)
+  add_subdirectory(systemc)
 endif()

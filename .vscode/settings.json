@@ -1,9 +1,17 @@
 {
+    "terminal.integrated.env.linux": {
+        "EXT_PATH": "${workspaceFolder}/build/bin",
+    },
+    "terminal.integrated.env.osx": {
+        "EXT_PATH": "${workspaceFolder}/build/bin",
+    },
     "cmake.configureSettings": {
         "CMAKE_INSTALL_PREFIX": "install",
         // "CMAKE_VERBOSE_MAKEFILE": "ON",
         "WITH_BOOST": "OFF",
         "WITH_PROTOBUF": "OFF",
         "WITH_GPRC": "OFF",
+        "WITH_SYSTEMC": "OFF",
+        "CMAKE_CXX_STANDARD": "20",
     },
 }

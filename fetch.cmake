@@ -1,8 +1,3 @@
-# https://cmake.org/cmake/help/latest/policy/CMP0077.html
-set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
-include(FetchContent)
-set(FETCHCONTENT_QUIET FALSE)
-
 # glog
 FetchContent_Declare(
   glog
@@ -14,17 +9,6 @@ set(sWITH_GTEST OFF)
 set(WITH_UNWIND OFF)
 set(BUILD_TESTING OFF)
 FetchContent_MakeAvailable(glog)
-
-# backward_cpp
-FetchContent_Declare(
-  backwardcpp
-  SYSTEM OVERRIDE_FIND_PACKAGE
-  GIT_REPOSITORY https://github.com/bombela/backward-cpp.git
-  GIT_TAG v1.6)
-if(NOT backwardcpp_POPULATED)
-  FetchContent_Populate(backwardcpp)
-  set(Backward_ROOT ${backwardcpp_SOURCE_DIR})
-endif()
 
 if(WITH_CAPNP)
   # capnproto
@@ -69,15 +53,6 @@ if(WITH_PROTOBUF)
     FetchContent_MakeAvailable(grpc)
   endif()
 endif()
-
-# fmt
-FetchContent_Declare(
-  fmt
-  SYSTEM OVERRIDE_FIND_PACKAGE
-  GIT_REPOSITORY https://github.com/fmtlib/fmt
-  GIT_TAG 10.1.1
-  GIT_SHALLOW TRUE)
-FetchContent_MakeAvailable(fmt)
 
 if(WITH_BOOST)
   # boost
